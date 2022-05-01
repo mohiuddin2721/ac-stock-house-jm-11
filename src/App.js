@@ -7,7 +7,9 @@ import Client from './components/home/Client/Client';
 import Contact from './components/home/Contact/Contact';
 import Home from './components/home/Home/Home';
 import Inventories from './components/home/Inventories/Inventories';
+import Login from './components/home/Login/Login';
 import Footer from './components/shared/Footer/Footer';
+import NotFound from './components/shared/NotFound/NotFound';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path='/client' element={<Client></Client>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
