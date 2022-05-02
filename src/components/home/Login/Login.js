@@ -7,7 +7,7 @@ const Login = () => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-        // console.log(email, password);
+        console.log(email, password);
     }
     return (
         <div className="login-container">
@@ -17,7 +17,7 @@ const Login = () => {
                 <input type="password" name='password' placeholder="password" required />
                 <button type='submit'>Login</button>
             </form>
-            <p>New to AC Stock House? <Link to="/signUp" className='text-primary pe-auto text-decoration-none'>Sign Up</Link> </p>
+            <p className='mt-2'><small>New to AC Stock House?</small> <Link to="/signUp" className='text-primary pe-auto text-decoration-none'>Please Sign Up</Link> </p>
             <p><button className='btn btn-link text-light pe-auto text-decoration-none'>Forget Password ?</button> </p>
         </div>
     );
