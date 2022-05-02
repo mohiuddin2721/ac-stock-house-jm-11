@@ -4,7 +4,7 @@ import './Inventories.css';
 const Inventories = () => {
     return (
         <div>
-            <h3>All Inventories items</h3>
+            <h3>Our Inventories items</h3>
         </div>
     );
 };
