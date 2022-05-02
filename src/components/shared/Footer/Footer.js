@@ -22,7 +22,6 @@ const Footer = () => {
                                 </li>
                                 <li className='text-white'>
                                     <p>Lalbagh Kella</p>
-                                    <p>Dhaka, Lalbagh</p>
                                 </li>
                             </ul>
                         </div>
