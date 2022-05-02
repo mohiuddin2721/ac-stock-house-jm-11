@@ -7,7 +7,7 @@ const HomeItem = props => {
     const { titleName, price, picture, description, quantity, supplier } = props.item;
 
     return (
-        <CardGroup className='col-md-4 col-12 border-sm rounded mt-5 Small shadow'>
+        <CardGroup className='col-md-4 col-12 mt-5 shadow-sm'>
             <Card>
                 <Card.Img variant="top" className='w-100 rounded' src={picture} />
                 <Card.Body>
