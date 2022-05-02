@@ -18,9 +18,9 @@ const HomeItems = () => {
                     ></HomeItem>)
                 }
             </div>
-            <div className='mt-3 text-center'>
+            <div className='m-5 text-center'>
                 <Link to='/inventories'>
-                    <button className='btn btn-primary'>See all Items</button>
+                    <button className='btn btn-lg btn-primary'>See all Items</button>
                 </Link>
             </div>
         </div>

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Card, CardGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './HomeItem.css';
 
-const HomeItem = props => {
+const Inventory = props => {
     const { titleName, price, picture, description, quantity, supplier } = props.item;
 
     return (
@@ -35,4 +34,4 @@ const HomeItem = props => {
     );
 };
 
-export default HomeItem;
+export default Inventory;
