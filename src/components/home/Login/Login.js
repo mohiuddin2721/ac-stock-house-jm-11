@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import Loading from '../../shared/Loading/Loading';
 import './Login.css';
@@ -12,6 +13,9 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -41,6 +45,17 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     }
 
+    const passwordReset = async event => {
+        const email = event.target.email.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent Email');
+        }
+        else {
+            toast('Enter your email address')
+        }
+    }
+
     return (
         <div className="login-container">
             <div className="login-title">LOGIN</div>
@@ -53,7 +68,7 @@ const Login = () => {
                 <button type='submit'>Login</button>
             </form>
             <p className='mt-2'><small>New to AC Stock House?</small> <Link to="/signUp" className='text-primary pe-auto text-decoration-none'>Please Sign Up</Link> </p>
-            <p><button className='btn btn-link text-light pe-auto text-decoration-none'>Forget Password ?</button> </p>
+            <p><button onClick={passwordReset} className='btn btn-link text-light pe-auto text-decoration-none'>Forget Password ?</button> </p>
         </div>
     );
 };
