@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Button, Card, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import './InventoryDetail.css';
 
@@ -9,14 +9,14 @@ const InventoryDetail = () => {
     return (
         <div className='container'>
             <h2 className='text-primary text-center mt-3'>Details of the inventory items: {id}</h2>
-            <div className='row'>
+            <div className='row mt-5'>
                 <div className="col-md-6 col-12">
                     <div>
                         <img src="" alt="" />
                     </div>
                 </div>
-                <div className="col-md-6 col-12">
-                    <Card border="primary" style={{ width: '18rem' }}>
+                <div className="col-md-6 col-12 ps-5">
+                    <Card border="0" style={{ width: '18rem' }}>
                         <Card.Header>Your Selected Item</Card.Header>
                         <Card.Body>
                             <Card.Title>Item: </Card.Title>
@@ -40,7 +40,16 @@ const InventoryDetail = () => {
                 </div>
             </div>
             <div className='mt-3'>
-                <button style={{background : '#120e43'}} className='btn text-light d-block mx-auto'>Delivered</button>
+                <button className='btn btn-outline-primary d-block mx-auto'>Delivered</button>
+            </div>
+            <div className='mt-5 w-50 mx-auto'>
+                <Form>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>restock the items</Form.Label>
+                        <Form.Control type="number" placeholder="How much Items" />
+                    </Form.Group>
+                    <button className='btn btn-outline-primary d-block mx-auto'>Restock</button>
+                </Form>
             </div>
         </div>
     );
