@@ -10,14 +10,14 @@ const InventoryDetail = () => {
         <div className='container'>
             <h2 className='text-primary text-center mt-3'>Details of the inventory items: {id}</h2>
             <div className='row'>
-                <div className="col-md-6">
+                <div className="col-md-6 col-12">
                     <div>
                         <img src="" alt="" />
                     </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 col-12">
                     <Card border="primary" style={{ width: '18rem' }}>
-                        <Card.Header>Header</Card.Header>
+                        <Card.Header>Your Selected Item</Card.Header>
                         <Card.Body>
                             <Card.Title>Item: </Card.Title>
                             <Card.Text>
@@ -38,6 +38,9 @@ const InventoryDetail = () => {
                         </Card.Body>
                     </Card>
                 </div>
+            </div>
+            <div className='mt-3'>
+                <button style={{background : '#120e43'}} className='btn text-light d-block mx-auto'>Delivered</button>
             </div>
         </div>
     );
