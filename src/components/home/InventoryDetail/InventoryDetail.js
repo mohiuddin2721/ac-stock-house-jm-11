@@ -48,7 +48,7 @@ const InventoryDetail = () => {
                         <Form.Label>restock the items</Form.Label>
                         <Form.Control type="number" placeholder="How much Items" />
                     </Form.Group>
-                    <button className='btn btn-outline-primary d-block mx-auto'>Restock</button>
+                    <button className='btn btn-outline-primary'>Restock</button>
                 </Form>
             </div>
             <div className='mt-3'>

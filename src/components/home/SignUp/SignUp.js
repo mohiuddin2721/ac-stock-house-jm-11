@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SignUp = () => {
+
     const handleSignUp = event => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-        console.log(name, email, password);
+        // console.log(name, email, password);
     }
     return (
         <div className="login-container">
