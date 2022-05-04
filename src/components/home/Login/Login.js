@@ -13,7 +13,9 @@ const Login = () => {
         <div className="login-container">
             <div className="login-title">LOGIN</div>
             <form className="login-form" onSubmit={handleLogin}>
+                <label htmlFor="">Your Email</label>
                 <input type="text" name='email' placeholder="Your Email" required />
+                <label htmlFor="">Your Password</label>
                 <input type="password" name='password' placeholder="password" required />
                 <button type='submit'>Login</button>
             </form>

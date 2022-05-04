@@ -7,6 +7,7 @@ import Client from './components/home/Client/Client';
 import Contact from './components/home/Contact/Contact';
 import Home from './components/home/Home/Home';
 import Inventories from './components/home/Inventories/Inventories';
+import InventoryDetail from './components/home/InventoryDetail/InventoryDetail';
 import Login from './components/home/Login/Login';
 import SignUp from './components/home/SignUp/SignUp';
 import Footer from './components/shared/Footer/Footer';
@@ -20,6 +21,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/inventories' element={<Inventories></Inventories>}></Route>
+        <Route path='/inventory/:id' element={<InventoryDetail></InventoryDetail>}></Route>
         <Route path='/client' element={<Client></Client>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
