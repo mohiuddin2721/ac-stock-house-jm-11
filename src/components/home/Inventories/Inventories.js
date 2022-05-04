@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useItems from '../../../hooks/useItems';
 import Inventory from '../Inventory/Inventory';
 import './Inventories.css';
@@ -15,6 +16,11 @@ const Inventories = () => {
                         item={item}
                     ></Inventory>)
                 }
+            </div>
+            <div className='mt-5'>
+                <Link to='/addItem'>
+                    <button style={{background: '#120e43', color: 'white'}} className='btn d-block mx-auto'>Add New Item</button>
+                </Link>
             </div>
         </div>
     );

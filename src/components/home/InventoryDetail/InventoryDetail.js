@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Card, Form } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Card, Form } from 'react-bootstrap';
+import { Link, useParams } from 'react-router-dom';
 import './InventoryDetail.css';
 
 const InventoryDetail = () => {
@@ -50,6 +50,11 @@ const InventoryDetail = () => {
                     </Form.Group>
                     <button className='btn btn-outline-primary d-block mx-auto'>Restock</button>
                 </Form>
+            </div>
+            <div className='mt-3'>
+                <Link to='/inventories'>
+                    <button className='btn btn-outline-primary d-block mx-auto'>Manage Inventories</button>
+                </Link>
             </div>
         </div>
     );

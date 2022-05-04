@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
 import Header from '../src/components/shared/Header/Header';
 import './App.css';
+import AddItem from './components/home/AddItem/AddItem';
 import Blog from './components/home/Blog/Blog';
 import Client from './components/home/Client/Client';
 import Contact from './components/home/Contact/Contact';
@@ -27,6 +28,7 @@ function App() {
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signUp' element={<SignUp></SignUp>}></Route>
+        <Route path='/addItem' element={<AddItem></AddItem>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
