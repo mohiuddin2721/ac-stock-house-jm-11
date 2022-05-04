@@ -1,14 +1,46 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
+import Loading from '../../shared/Loading/Loading';
 import './Login.css';
 
 const Login = () => {
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+    let messageError;
+
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+        }
+    }, [user, navigate, from]);
+
+    if (loading) {
+        return <Loading></Loading>
+    };
+
+    if (error) {
+        messageError = <p className='text-danger'>Error: {error.message}</p>
+    };
+
     const handleLogin = event => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-        console.log(email, password);
+        // console.log(email, password);
+
+        signInWithEmailAndPassword(email, password);
     }
+
     return (
         <div className="login-container">
             <div className="login-title">LOGIN</div>
@@ -17,6 +49,7 @@ const Login = () => {
                 <input type="text" name='email' placeholder="Your Email" required />
                 <label htmlFor="">Your Password</label>
                 <input type="password" name='password' placeholder="password" required />
+                {messageError}
                 <button type='submit'>Login</button>
             </form>
             <p className='mt-2'><small>New to AC Stock House?</small> <Link to="/signUp" className='text-primary pe-auto text-decoration-none'>Please Sign Up</Link> </p>
