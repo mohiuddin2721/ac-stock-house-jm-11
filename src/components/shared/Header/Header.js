@@ -1,10 +1,20 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../../src/images/mainLogo.png';
+import auth from '../../../firebase.init';
 import './Header.css';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
+
+    const handleSignOut = () => {
+        signOut(auth);
+        navigate('/home');
+    }
     return (
         <div>
             <Navbar style={{ 'backgroundColor': '#120E43' }} collapseOnSelect expand="lg" variant="dark" sticky="top">
@@ -22,8 +32,28 @@ const Header = () => {
                         </Nav>
                         <Nav>
                             <Nav.Link className='text-light fw-bold' as={Link} to="/contact">CONTACT</Nav.Link>
-                            <Nav.Link className='text-light fw-bold' as={Link} to="/logIn">LOG IN</Nav.Link>
-                            <Nav.Link className='text-light fw-bold' as={Link} to="/signUp">SIGN UP</Nav.Link>
+
+                            {
+
+                                user
+                                ?
+                                <button onClick={handleSignOut} className='btn btn-link text-white fw-bold text-decoration-none'>SIGN OUT</button>
+                                :
+                                <Nav.Link className='text-light fw-bold' as={Link} to="/logIn">LOG IN</Nav.Link>
+
+                            }
+
+                        </Nav>
+                        <Nav className='me-auto'>
+                            {
+                                user &&
+                                <>
+                                    <Nav.Link className='fw-bold text-light mt-2'>{user?.displayName} </Nav.Link>
+                                    <Navbar.Brand>
+                                        <img style={{ 'borderRadius': '50%', 'maxHeight': '50px' }} src={user?.photoURL} alt="" />
+                                    </Navbar.Brand>
+                                </>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
