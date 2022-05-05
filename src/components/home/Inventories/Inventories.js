@@ -12,7 +12,7 @@ const Inventories = () => {
             <div className='container row mx-auto'>
                 {
                     items.map(item => <Inventory
-                        key={item.id}
+                        key={item._id}
                         item={item}
                     ></Inventory>)
                 }

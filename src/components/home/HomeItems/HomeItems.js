@@ -13,7 +13,7 @@ const HomeItems = () => {
             <div className='container row mx-auto'>
                 {
                     sixItems.map(item => <HomeItem
-                        key={item.id}
+                        key={item._id}
                         item={item}
                     ></HomeItem>)
                 }
