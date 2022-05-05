@@ -11,7 +11,7 @@ const Header = () => {
     const [user] = useAuthState(auth);
     // console.log(user?.displayName);
     // console.log(user?.photoURL);
-    
+
     const navigate = useNavigate();
 
     const handleSignOut = () => {
@@ -29,7 +29,17 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link className='text-light fw-bold' as={Link} to="/home">HOME</Nav.Link>
-                            <Nav.Link className='text-light fw-bold' as={Link} to="/inventories">Manage Inventories</Nav.Link>
+                            {
+                                user
+                                &&
+                                <>
+                                    <Nav.Link className='text-light fw-bold' as={Link} to="/inventories">MANAGE INVENTORIES</Nav.Link>
+                                    <Nav.Link className='text-light fw-bold' as={Link} to="/addItem">ADD ITEM</Nav.Link>
+                                    <Nav.Link className='text-light fw-bold' as={Link} to="/myItems">MY ITEMS</Nav.Link>
+                                </>
+
+                            }
+
                             <Nav.Link className='text-light fw-bold' as={Link} to="/client">CLIENT</Nav.Link>
                             <Nav.Link className='text-light fw-bold' as={Link} to="/blog">BLOG</Nav.Link>
                         </Nav>
