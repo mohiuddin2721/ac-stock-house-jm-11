@@ -1,39 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Form } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import './InventoryDetail.css';
 
 const InventoryDetail = () => {
     const { id } = useParams();
+    const [inventoryDetail, setInventoryDetail] = useState();
+
+    useEffect(() => {
+        const url = `http://localhost:5000/items/${id}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setInventoryDetail(data))
+
+    }, [])
 
     return (
         <div className='container'>
-            <h2 className='text-primary text-center mt-3'>Details of the inventory items: {id}</h2>
+            <h2 className='text-primary text-center mt-3'>Details of the inventory items: {inventoryDetail?.titleName}</h2>
             <div className='row mt-5'>
                 <div className="col-md-6 col-12">
                     <div>
-                        <img src="" alt="" />
+                        <img src={inventoryDetail?.picture} alt="" />
                     </div>
                 </div>
                 <div className="col-md-6 col-12 ps-5">
                     <Card border="0" style={{ width: '18rem' }}>
                         <Card.Header>Your Selected Item</Card.Header>
                         <Card.Body>
-                            <Card.Title>Item: </Card.Title>
+                            <Card.Title>Item: {inventoryDetail?.titleName}</Card.Title>
                             <Card.Text>
-                                <small>Price: <span className='fw-bold'></span></small>
+                                <small>Price: {inventoryDetail?.price}<span className='fw-bold'></span></small>
                             </Card.Text>
                             <Card.Text className='p-0 m-0'>
-                                description:
+                                description:{inventoryDetail?.description}
                             </Card.Text>
                             <Card.Text className='p-0 mt-2 mb-0'>
-                                <span className='fs-5 fst-italic'>Quantity: </span>
+                                <span className='fs-5 fst-italic'>Quantity: {inventoryDetail?.quantity}</span>
                             </Card.Text>
                             <Card.Text className='p-0 mt-2 mb-0'>
-                                <span className='fs-5 fst-italic'>Sold: </span>
+                                <span className='fs-5 fst-italic'>Sold</span>
                             </Card.Text>
                             <Card.Text className='p-0 mb-2'>
-                                Supplier: <span className='fw-normal'></span>
+                                Supplier: <span className='fw-normal'>{inventoryDetail?.supplier}</span>
                             </Card.Text>
                         </Card.Body>
                     </Card>

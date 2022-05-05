@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './HomeItem.css';
 
 const HomeItem = props => {
-    const { titleName, price, picture, description, quantity, supplier, id } = props.item;
+    const { titleName, price, picture, description, quantity, supplier, _id } = props.item;
 
     return (
         <CardGroup className='col-md-4 col-12 mt-5 shadow-sm'>
@@ -25,7 +25,7 @@ const HomeItem = props => {
                         Supplier: <span className='fw-normal'>{supplier}</span>
                     </Card.Text>
                     <Card.Text className='text-center'>
-                        <Link to={'/inventory/' + id}>
+                        <Link to={'/inventory/' + _id}>
                             <button className='btn btn-outline-primary'>stock update</button>
                         </Link>
                     </Card.Text>
