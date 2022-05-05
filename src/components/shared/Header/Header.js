@@ -30,20 +30,7 @@ const Header = () => {
                             <Nav.Link className='text-light fw-bold' as={Link} to="/client">CLIENT</Nav.Link>
                             <Nav.Link className='text-light fw-bold' as={Link} to="/blog">BLOG</Nav.Link>
                         </Nav>
-                        <Nav>
-                            <Nav.Link className='text-light fw-bold' as={Link} to="/contact">CONTACT</Nav.Link>
 
-                            {
-
-                                user
-                                ?
-                                <button onClick={handleSignOut} className='btn btn-link text-white fw-bold text-decoration-none'>SIGN OUT</button>
-                                :
-                                <Nav.Link className='text-light fw-bold' as={Link} to="/logIn">LOG IN</Nav.Link>
-
-                            }
-
-                        </Nav>
                         <Nav className='me-auto'>
                             {
                                 user &&
@@ -54,6 +41,21 @@ const Header = () => {
                                     </Navbar.Brand>
                                 </>
                             }
+                        </Nav>
+
+                        <Nav>
+                            <Nav.Link className='text-light fw-bold' as={Link} to="/contact">CONTACT</Nav.Link>
+
+                            {
+
+                                user
+                                    ?
+                                    <button onClick={handleSignOut} className='btn btn-link text-white fw-bold text-decoration-none'>SIGN OUT</button>
+                                    :
+                                    <Nav.Link className='text-light fw-bold' as={Link} to="/logIn">LOG IN</Nav.Link>
+
+                            }
+
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
