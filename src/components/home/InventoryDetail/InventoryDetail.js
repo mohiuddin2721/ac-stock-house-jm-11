@@ -5,7 +5,7 @@ import './InventoryDetail.css';
 
 const InventoryDetail = () => {
     const { id } = useParams();
-    const [inventoryDetail, setInventoryDetail] = useState();
+    const [inventoryDetail, setInventoryDetail] = useState({});
 
     useEffect(() => {
         const url = `http://localhost:5000/items/${id}`;
@@ -19,9 +19,9 @@ const InventoryDetail = () => {
         <div className='container'>
             <h2 className='text-primary text-center mt-3'>Details of the inventory items: {inventoryDetail?.titleName}</h2>
             <div className='row mt-5'>
-                <div className="col-md-6 col-12">
+                <div className="col-md-6 col-12 ps-5">
                     <div>
-                        <img src={inventoryDetail?.picture} alt="" />
+                        <img className='w-75' src={inventoryDetail?.picture} alt="" />
                     </div>
                 </div>
                 <div className="col-md-6 col-12 ps-5">
