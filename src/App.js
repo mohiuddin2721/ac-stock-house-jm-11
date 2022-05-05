@@ -13,6 +13,7 @@ import Login from './components/home/Login/Login';
 import SignUp from './components/home/SignUp/SignUp';
 import Footer from './components/shared/Footer/Footer';
 import NotFound from './components/shared/NotFound/NotFound';
+import RequireAuth from '../src/components/home/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -22,7 +23,11 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/inventories' element={<Inventories></Inventories>}></Route>
-        <Route path='/inventory/:id' element={<InventoryDetail></InventoryDetail>}></Route>
+        <Route path='/inventory/:id' element={
+        <RequireAuth>
+          <InventoryDetail></InventoryDetail>
+        </RequireAuth>
+        }></Route>
         <Route path='/client' element={<Client></Client>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>

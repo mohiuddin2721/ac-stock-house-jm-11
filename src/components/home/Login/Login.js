@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import Loading from '../../shared/Loading/Loading';
+import SocialLogin from '../SocialLogin/SocialLogin';
 import './Login.css';
 
 const Login = () => {
@@ -70,6 +71,9 @@ const Login = () => {
             </form>
             <p className='mt-2'><small>New to AC Stock House?</small> <Link to="/signUp" className='text-primary pe-auto text-decoration-none'>Please Sign Up</Link> </p>
             <p><button onClick={passwordReset} className='btn btn-link text-light pe-auto text-decoration-none'>Forget Password ?</button> </p>
+            <div>
+                <SocialLogin></SocialLogin>
+            </div>
         </div>
     );
 };
