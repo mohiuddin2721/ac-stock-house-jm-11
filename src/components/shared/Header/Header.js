@@ -9,6 +9,9 @@ import './Header.css';
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    // console.log(user?.displayName);
+    // console.log(user?.photoURL);
+    
     const navigate = useNavigate();
 
     const handleSignOut = () => {
