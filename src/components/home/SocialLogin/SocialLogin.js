@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../../shared/Loading/Loading';
@@ -9,6 +9,7 @@ const SocialLogin = () => {
     const location = useLocation();
 
     const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] = useSignInWithGoogle(auth);
+    const [signInWithFacebook, userFb, loadingFb, errorFb] = useSignInWithFacebook(auth);
 
     const navigate = useNavigate();
 
@@ -17,16 +18,16 @@ const SocialLogin = () => {
     let massageError;
 
     useEffect(() => {
-        if (userGoogle) {
+        if (userGoogle || userFb) {
             navigate(from, { replace: true });
         }
-    }, [userGoogle, from, navigate]);
+    }, [userGoogle, userFb, from, navigate]);
 
-    if (loadingGoogle) {
+    if (loadingGoogle || loadingFb) {
         return <Loading></Loading>
     }
 
-    if (errorGoogle) {
+    if (errorGoogle || errorFb) {
         massageError = <p className='text-danger'>Error: {errorGoogle?.message}</p>
     }
 
@@ -47,7 +48,8 @@ const SocialLogin = () => {
                 </button>
                 <button
                     style={{ background: '120e43' }}
-                    className='btn w-75 d-block mx-auto my-2'>
+                    className='btn w-75 d-block mx-auto my-2'
+                    onClick={() => signInWithFacebook()}>
                     <span className='px-2 text-light'><small>Facebook Log In</small></span>
                 </button>
             </div>
