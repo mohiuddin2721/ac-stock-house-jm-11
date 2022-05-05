@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 const Inventory = props => {
     const { titleName, price, picture, description, quantity, supplier } = props.item;

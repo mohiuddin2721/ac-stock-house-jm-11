@@ -1,0 +1,13 @@
+.addItem-container {
+    width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+    .addItem-container {
+        width: 100%;
+    }
+
+    .addItem-container input {
+        width: 100%;
+    }
+}
