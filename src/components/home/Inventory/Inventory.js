@@ -24,9 +24,7 @@ const Inventory = props => {
                         Supplier: <span className='fw-normal'>{supplier}</span>
                     </Card.Text>
                     <Card.Text className='text-center'>
-                        <Link to=''>
-                            <button className='btn btn-outline-primary'>stock update</button>
-                        </Link>
+                        <button className='btn btn-outline-primary'>Delete</button>
                     </Card.Text>
                 </Card.Body>
             </Card>
