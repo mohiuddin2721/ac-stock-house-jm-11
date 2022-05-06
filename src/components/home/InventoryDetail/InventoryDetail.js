@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Form } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import './InventoryDetail.css';
 
 const InventoryDetail = () => {
@@ -12,8 +13,37 @@ const InventoryDetail = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setInventoryDetail(data))
+    }, []);
 
-    }, [])
+    const handleDelivered = () => {
+        const newQuantity = parseInt(inventoryDetail?.quantity) - 1;
+        console.log(newQuantity);
+
+        const url = `http://localhost:5000/items/${id}`;
+
+        if (inventoryDetail?.quantity > 0) {
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ quantity: newQuantity})
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                alert('Quantity Updated')
+                toast('Quantity Updated')
+            })
+        }
+        else {
+            toast('Stock is empty')
+        }
+    }
+
+    const handleRestock = event => {
+
+    };
 
     return (
         <div className='container'>
@@ -49,21 +79,20 @@ const InventoryDetail = () => {
                 </div>
             </div>
             <div className='mt-3'>
-                <button className='btn btn-outline-primary d-block mx-auto'>Delivered</button>
+                <button onClick={handleDelivered} className='btn btn-outline-primary d-block mx-auto'>Delivered</button>
             </div>
             <div className='mt-5 w-50 mx-auto'>
-                <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>restock the items</Form.Label>
-                        <Form.Control type="number" placeholder="How much Items" />
-                    </Form.Group>
-                    <button className='btn btn-outline-primary'>Restock</button>
-                </Form>
+                <form className='d-flex flex-column'>
+                    <label className='mb-3 text-center' htmlFor="">restock the items</label>
+                    <input className='mb-3' type="number" name='number' placeholder='How much Items' />
+                    <input onClick={handleRestock} className='btn btn-outline-primary' type="submit" value="Restock" />
+                </form>
             </div>
             <div className='mt-3'>
                 <Link to='/inventories'>
                     <button className='btn btn-outline-primary d-block mx-auto'>Manage Inventories</button>
                 </Link>
+                <ToastContainer />
             </div>
         </div>
     );

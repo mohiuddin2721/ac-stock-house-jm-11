@@ -21,6 +21,7 @@ const Inventory = props => {
             })
         }
     }
+    
     return (
         <CardGroup className='col-md-4 col-12 border-sm rounded mt-5 Small shadow'>
             <Card>
