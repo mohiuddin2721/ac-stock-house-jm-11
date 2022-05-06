@@ -17,7 +17,7 @@ const InventoryDetail = () => {
 
     const handleDelivered = () => {
         const newQuantity = parseInt(inventoryDetail?.quantity) - 1;
-        console.log(newQuantity);
+        // console.log(newQuantity);
 
         const url = `http://localhost:5000/items/${id}`;
 
@@ -31,9 +31,9 @@ const InventoryDetail = () => {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                alert('Quantity Updated')
-                toast('Quantity Updated')
+                // console.log(data)
+                alert('Quantity Delivered')
+                toast('Quantity Delivered')
             })
         }
         else {
@@ -42,6 +42,29 @@ const InventoryDetail = () => {
     }
 
     const handleRestock = event => {
+        event.preventDefault();
+        const increaseQuantity = parseInt(event.target.number.value);
+        const quantity = parseInt(inventoryDetail?.quantity);
+        // console.log(increaseQuantity, quantity);
+        const restockQuantity = increaseQuantity + quantity;
+
+        const url = `http://localhost:5000/items/${id}`;
+
+        if (inventoryDetail?.quantity > 0) {
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ quantity: restockQuantity})
+            })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                alert('Quantity restock success')
+                toast('Quantity restock success')
+            })
+        }
 
     };
 
@@ -82,10 +105,10 @@ const InventoryDetail = () => {
                 <button onClick={handleDelivered} className='btn btn-outline-primary d-block mx-auto'>Delivered</button>
             </div>
             <div className='mt-5 w-50 mx-auto'>
-                <form className='d-flex flex-column'>
+                <form onSubmit={handleRestock} className='d-flex flex-column'>
                     <label className='mb-3 text-center' htmlFor="">restock the items</label>
                     <input className='mb-3' type="number" name='number' placeholder='How much Items' />
-                    <input onClick={handleRestock} className='btn btn-outline-primary' type="submit" value="Restock" />
+                    <input className='btn btn-outline-primary' type="submit" value="Restock" />
                 </form>
             </div>
             <div className='mt-3'>
