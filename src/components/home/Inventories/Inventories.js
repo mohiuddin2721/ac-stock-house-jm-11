@@ -8,7 +8,7 @@ const Inventories = () => {
     const [items] = useItems();
     return (
         <div>
-            <h3 className='text-primary text-center mt-4'>Our All Inventories items</h3>
+            <h3 className='text-primary text-center mt-4'>Manage All Inventories items</h3>
             <div className='container row mx-auto'>
                 {
                     items.map(item => <Inventory
