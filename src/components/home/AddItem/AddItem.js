@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 
 const AddItem = () => {
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
+
+    const onSubmit = (data, event) => {
         // console.log(data)
         const url = `http://localhost:5000/items`;
         fetch(url, {
@@ -17,13 +18,17 @@ const AddItem = () => {
         .then(res => res.json())
         .then(result => {
             // console.log(result);
+            alert('users added successfully!!!');
+            event.target.reset();
         })
     };
 
     return (
         <div className='mx-auto addItem-container m-4'>
             <h2 className='mb-4 text-center'>You can add New Item</h2>
+
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
+
                 <input className='mb-2' placeholder='Name' {...register("titleName", { required: true, maxLength: 20 })} />
                 <input className='mb-2' placeholder='Supplier' {...register("supplier", { required: true, maxLength: 20 })} />
                 <textarea className='mb-2' placeholder='Description' {...register("description")} />
@@ -31,7 +36,9 @@ const AddItem = () => {
                 <input className='mb-2' placeholder='Quantity' type="number" {...register("quantity")} />
                 <input className='mb-2' placeholder='picture' type="text" {...register("picture")} />
                 <input style={{background: '#120e43', color: 'white'}} type="submit" value="Add Service" />
+
             </form>
+
         </div>
     );
 };

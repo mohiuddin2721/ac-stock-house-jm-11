@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -8,6 +8,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import './Login.css';
 
 const Login = () => {
+    const emailRef = useRef('');
     const [
         signInWithEmailAndPassword,
         user,
@@ -47,14 +48,16 @@ const Login = () => {
     }
 
     const passwordReset = async (event) => {
-        const email = event.target.email.value;
+        const email = emailRef.current.value;
         console.log(email);
         if (email) {
             await sendPasswordResetEmail(email);
+            alert('Sent Email');
             toast('Sent Email');
         }
         else {
-            toast('Enter your email address')
+            toast('Enter your email address');
+            alert('Enter your email address');
         }
     }
 
@@ -63,7 +66,7 @@ const Login = () => {
             <div className="login-title">LOGIN</div>
             <form className="login-form" onSubmit={handleLogin}>
                 <label htmlFor="">Your Email</label>
-                <input type="email" name='email' placeholder="Your Email" required />
+                <input type="email" ref={emailRef} name='email' placeholder="Your Email" required />
                 <label htmlFor="">Your Password</label>
                 <input type="password" name='password' placeholder="password" required />
                 {messageError}

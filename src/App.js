@@ -15,6 +15,7 @@ import Footer from './components/shared/Footer/Footer';
 import NotFound from './components/shared/NotFound/NotFound';
 import RequireAuth from '../src/components/home/RequireAuth/RequireAuth';
 import MyItems from './components/home/MyItems/MyItems';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }

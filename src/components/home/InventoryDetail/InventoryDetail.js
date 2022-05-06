@@ -5,6 +5,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import './InventoryDetail.css';
 
 const InventoryDetail = () => {
+    const [reload, setReload] = useState(false);
+
     const { id } = useParams();
     const [inventoryDetail, setInventoryDetail] = useState({});
 
@@ -13,7 +15,7 @@ const InventoryDetail = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setInventoryDetail(data))
-    }, []);
+    }, [reload, id]);
 
     const handleDelivered = () => {
         const newQuantity = parseInt(inventoryDetail?.quantity) - 1;
@@ -34,6 +36,7 @@ const InventoryDetail = () => {
                 // console.log(data)
                 alert('Quantity Delivered')
                 toast('Quantity Delivered')
+                setReload(!reload)
             })
         }
         else {
@@ -44,13 +47,14 @@ const InventoryDetail = () => {
     const handleRestock = event => {
         event.preventDefault();
         const increaseQuantity = parseInt(event.target.number.value);
-        const quantity = parseInt(inventoryDetail?.quantity);
+        const quantity = (inventoryDetail?.quantity);
         // console.log(increaseQuantity, quantity);
         const restockQuantity = increaseQuantity + quantity;
+        // console.log(restockQuantity);
 
         const url = `http://localhost:5000/items/${id}`;
 
-        if (inventoryDetail?.quantity > 0) {
+        if (increaseQuantity > 0 && quantity >= 0) {
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -63,6 +67,7 @@ const InventoryDetail = () => {
                 // console.log(data)
                 alert('Quantity restock success')
                 toast('Quantity restock success')
+                setReload(!reload)
             })
         }
 

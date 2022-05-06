@@ -4,7 +4,6 @@ import brand1 from '../../../images/brand1.png';
 import brand2 from '../../../images/brand2.png';
 import brand3 from '../../../images/brand3.png';
 import brand4 from '../../../images/brand4.png';
-import { ToastContainer } from 'react-toastify';
 
 const Footer = () => {
     return (
@@ -82,7 +81,7 @@ const Footer = () => {
                 </div>
             </div>
             <p className='text-center text-light'><small>Copyright &copy; {new Date().getFullYear()} AC Stock House. All Rights Reserved. Designed By K M Mohiuddin Patwary</small></p>
-            <ToastContainer />
+            
         </footer>
     );
 };

@@ -5,7 +5,23 @@ import Inventory from '../Inventory/Inventory';
 import './Inventories.css';
 
 const Inventories = () => {
-    const [items] = useItems();
+    const [items, setItems] = useItems();
+
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure');
+        if (proceed) {
+            const url = `http://localhost:5000/items/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                const remaining = items.filter(item => item._id !== id);
+                setItems(remaining);
+            })
+        }
+    }
 
     return (
         <div>
@@ -15,6 +31,7 @@ const Inventories = () => {
                     items.map(item => <Inventory
                         key={item._id}
                         item={item}
+                        handleDelete={handleDelete}
                     ></Inventory>)
                 }
             </div>

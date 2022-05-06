@@ -1,26 +1,9 @@
 import React from 'react';
 import { Card, CardGroup } from 'react-bootstrap';
-import useItems from '../../../hooks/useItems';
 
 const Inventory = props => {
-    const [items, setItems] = useItems();
-    const { titleName, price, picture, description, quantity, supplier, _id } = props.item;
 
-    const handleDelete = id => {
-        const proceed = window.confirm('Are you sure');
-        if (proceed) {
-            const url = `http://localhost:5000/items/${id}`;
-            fetch(url, {
-                method: 'DELETE'
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                const remaining = items.filter(item => item._id !== id);
-                setItems(remaining);
-            })
-        }
-    }
+    const { titleName, price, picture, description, quantity, supplier, _id } = props.item;
     
     return (
         <CardGroup className='col-md-4 col-12 border-sm rounded mt-5 Small shadow'>
@@ -41,7 +24,7 @@ const Inventory = props => {
                         Supplier: <span className='fw-normal'>{supplier}</span>
                     </Card.Text>
                     <Card.Text className='text-center'>
-                        <button onClick={() => handleDelete(_id)} className='btn btn-outline-primary'>Delete</button>
+                        <button onClick={() => props.handleDelete(_id)} className='btn btn-outline-primary'>Delete</button>
                     </Card.Text>
                 </Card.Body>
             </Card>
