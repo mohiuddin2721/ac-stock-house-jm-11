@@ -21,7 +21,7 @@ const AddItem = () => {
     };
 
     return (
-        <div className='mx-auto w-50 addItem-container m-4'>
+        <div className='mx-auto addItem-container m-4'>
             <h2 className='mb-4 text-center'>You can add New Item</h2>
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
                 <input className='mb-2' placeholder='Name' {...register("titleName", { required: true, maxLength: 20 })} />
@@ -30,7 +30,7 @@ const AddItem = () => {
                 <input className='mb-2' placeholder='Price' type="number" {...register("price")} />
                 <input className='mb-2' placeholder='Quantity' type="number" {...register("quantity")} />
                 <input className='mb-2' placeholder='picture' type="text" {...register("picture")} />
-                <input type="submit" value="Add Service" />
+                <input style={{background: '#120e43', color: 'white'}} type="submit" value="Add Service" />
             </form>
         </div>
     );

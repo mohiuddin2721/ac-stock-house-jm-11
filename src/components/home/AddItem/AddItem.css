@@ -1,4 +1,4 @@
-/* .addItem-container {
+.addItem-container {
     width: 50%;
 }
 
@@ -7,7 +7,10 @@
         width: 100%;
     }
 
-    .addItem-container input {
+    .addItem-container input, textarea {
         width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 5px;
     }
-} */
+}
