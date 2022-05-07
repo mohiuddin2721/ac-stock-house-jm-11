@@ -2,9 +2,8 @@ import React from 'react';
 import { Card, CardGroup } from 'react-bootstrap';
 
 const MyItem = props => {
-    const { titleName, price, picture, description, quantity, supplier } = props.myItem; 
+    const { titleName, price, picture, description, quantity, supplier, _id } = props.myItem; 
     return (
-        <div>
             <CardGroup className='col-md-4 col-12 border-sm rounded mt-5 Small shadow'>
             <Card>
                 <Card.Img variant="top" className='w-100 rounded' src={picture} />
@@ -23,12 +22,11 @@ const MyItem = props => {
                         Supplier: <span className='fw-normal'>{supplier}</span>
                     </Card.Text>
                     <Card.Text className='text-center'>
-                        <button className='btn btn-outline-primary'>Delete</button>
+                        <button onClick={() => props.handleMyItemDelete(_id)} className='btn btn-outline-primary'>Delete</button>
                     </Card.Text>
                 </Card.Body>
             </Card>
         </CardGroup>
-        </div>
     );
 };
 

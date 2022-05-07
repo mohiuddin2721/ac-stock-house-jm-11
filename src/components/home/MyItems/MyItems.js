@@ -20,7 +20,21 @@ const MyItems = () => {
 
     }, [user]);
 
-    console.log(myItems);
+    const handleMyItemDelete = id => {
+        const proceed = window.confirm('Are you sure???');
+        if (proceed) {
+            const url = `http://localhost:5000/myItems/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                const remaining = myItems.filter(item => item._id !== id);
+                setMyItems(remaining);
+            })
+        }
+    }
 
     return (
         <div>
@@ -30,6 +44,7 @@ const MyItems = () => {
                     myItems.map(myItem => <MyItem
                     key={myItem._id}
                     myItem={myItem}
+                    handleMyItemDelete={handleMyItemDelete}
                     ></MyItem>)
                 }
             </div>

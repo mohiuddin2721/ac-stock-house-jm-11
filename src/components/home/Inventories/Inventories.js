@@ -8,7 +8,7 @@ const Inventories = () => {
     const [items, setItems] = useItems();
 
     const handleDelete = id => {
-        const proceed = window.confirm('Are you sure');
+        const proceed = window.confirm('Are you sure???');
         if (proceed) {
             const url = `http://localhost:5000/items/${id}`;
             fetch(url, {
