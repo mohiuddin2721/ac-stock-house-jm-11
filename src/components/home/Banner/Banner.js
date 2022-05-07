@@ -4,7 +4,7 @@ import banner from '../../../images/banner.webp';
 
 const Banner = () => {
     return (
-        <div className='banner-container'>
+        <div className='banner-container mt-5'>
             <img className='w-100' src={banner} alt="" />
         </div>
     );

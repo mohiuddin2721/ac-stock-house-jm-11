@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useRef } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init';
 import Loading from '../../shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -81,6 +81,7 @@ const Login = () => {
             <p><button onClick={passwordReset} className='btn btn-link text-light pe-auto text-decoration-none'>Forget Password ?</button> </p>
             <div>
                 <SocialLogin></SocialLogin>
+                <ToastContainer />
             </div>
         </div>
     );

@@ -20,7 +20,7 @@ const Header = () => {
     }
     return (
         <div>
-            <Navbar style={{ 'backgroundColor': '#120E43' }} collapseOnSelect expand="lg" variant="dark" sticky="top">
+            <Navbar style={{ 'backgroundColor': '#120E43' }} collapseOnSelect expand="lg" variant="dark" fixed="top">
                 <Container>
                     <Navbar.Brand as={Link} to="/home">
                         <img className='rounded h-40 w-50' src={logo} alt="" />

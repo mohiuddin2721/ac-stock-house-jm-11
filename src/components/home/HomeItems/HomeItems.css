@@ -1,3 +1,7 @@
 div .head-line {
     color: #120e43;
 }
+
+div .head-line:hover {
+    color: rgb(235, 156, 11);
+}

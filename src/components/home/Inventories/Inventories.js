@@ -16,7 +16,7 @@ const Inventories = () => {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 const remaining = items.filter(item => item._id !== id);
                 setItems(remaining);
             })
