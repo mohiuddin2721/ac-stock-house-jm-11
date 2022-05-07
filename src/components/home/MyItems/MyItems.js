@@ -53,7 +53,7 @@ const MyItems = () => {
 
     return (
         <div>
-            <h2 className='text-center text-primary'>Your Items: {myItems.length}</h2>
+            <h2 className='text-center head-line mt-4'>Your Items: {myItems.length}</h2>
             <div className='container row mx-auto'>
                 {
                     myItems.map(myItem => <MyItem

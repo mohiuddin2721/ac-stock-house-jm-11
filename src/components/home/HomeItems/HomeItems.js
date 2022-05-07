@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useItems from '../../../hooks/useItems';
 import HomeItem from '../HomeItem/HomeItem';
+import './HomeItems.css';
 
 const HomeItems = () => {
     const [items] = useItems();
@@ -9,7 +10,7 @@ const HomeItems = () => {
 
     return (
         <div>
-            <h1 className='text-center text-primary mt-5'>Our Inventory Items</h1>
+            <h1 className='text-center head-line mt-3'>Our Inventory Items</h1>
             <div className='container row mx-auto'>
                 {
                     sixItems.map(item => <HomeItem
