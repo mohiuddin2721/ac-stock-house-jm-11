@@ -44,18 +44,6 @@ const Header = () => {
                             <Nav.Link className='text-light fw-bold' as={Link} to="/blog">BLOG</Nav.Link>
                         </Nav>
 
-                        <Nav className='me-auto'>
-                            {
-                                user &&
-                                <>
-                                    <Nav.Link className='fw-bold text-light mt-2'>{user?.displayName} </Nav.Link>
-                                    <Navbar.Brand>
-                                        <img style={{ 'borderRadius': '50%', 'maxHeight': '50px' }} src={user?.photoURL} alt="" />
-                                    </Navbar.Brand>
-                                </>
-                            }
-                        </Nav>
-
                         <Nav>
                             <Nav.Link className='text-light fw-bold' as={Link} to="/contact">CONTACT</Nav.Link>
 
@@ -70,6 +58,19 @@ const Header = () => {
                             }
 
                         </Nav>
+
+                        <Nav>
+                            {
+                                user &&
+                                <>
+                                    <Nav.Link className='fw-bold text-light mt-2'>{user?.displayName} </Nav.Link>
+                                    <Navbar.Brand>
+                                        <img style={{ 'borderRadius': '50%', 'maxHeight': '50px' }} src={user?.photoURL} alt="" />
+                                    </Navbar.Brand>
+                                </>
+                            }
+                        </Nav>
+
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

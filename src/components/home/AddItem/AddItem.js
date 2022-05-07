@@ -29,7 +29,7 @@ const AddItem = () => {
 
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
 
-                <input className='mb-2' placeholder='Name' {...register("titleName", { required: true, maxLength: 20 })} />
+                <input className='mb-2' placeholder='Item Name' {...register("titleName", { required: true, maxLength: 20 })} />
                 <input className='mb-2' placeholder='Supplier' {...register("supplier", { required: true, maxLength: 20 })} />
                 <textarea className='mb-2' placeholder='Description' {...register("description")} />
                 <input className='mb-2' placeholder='Price' type="number" {...register("price")} />
