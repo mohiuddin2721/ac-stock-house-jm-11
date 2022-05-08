@@ -1,0 +1,11 @@
+div .contact-container {
+    height: 100vh;
+    background-image: url("https://i.ibb.co/PCD1vKx/contact1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contact-info {
+    padding-top: 100px;
+}

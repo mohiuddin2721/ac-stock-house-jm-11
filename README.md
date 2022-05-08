@@ -1,10 +1,10 @@
 # AC Stock House
 
-### `Live site`
+### `Live Site` [AC Stock House](https://ac-stock-house.web.app/)
 
-In the project directory, you can run:
 
 ### `Description of AC Stock House`
+In the project directory, you can run:
 
 It's a dynamic and so secured website. Anybody can't access all this features without email verification. A valid user will able to acces all features and easily can handle this. If a valid user want to delete his/her item, he/she can do it easily and he/she can easily resore the items too.
 
