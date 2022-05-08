@@ -9,7 +9,7 @@ const SupplierWord = () => {
             <div className='mt-2'>
                 <Accordion>
                     <Accordion.Item eventKey="0">
-                        <Accordion.Header><span className='fw-bold text-success'>GREE <Badge bg="secondary">Mor info</Badge></span></Accordion.Header>
+                        <Accordion.Header><span className='fw-bold text-success'>GREE <Badge bg="secondary">Info</Badge></span></Accordion.Header>
                         <Accordion.Body>
                         According to the Nikkei newspaper, Gree’s global market share of residential air conditioners reached 20.6% in 2018, ranking No.1 in the world for 14 years.
                         <br />
@@ -19,7 +19,7 @@ const SupplierWord = () => {
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="1">
-                        <Accordion.Header><span className='fw-bold text-success'>SAMSUNG <Badge bg="secondary">Mor info</Badge></span></Accordion.Header>
+                        <Accordion.Header><span className='fw-bold text-success'>SAMSUNG <Badge bg="secondary">Info</Badge></span></Accordion.Header>
                         <Accordion.Body>
                             <span className='fs-3'>Our mission & approach</span>
                             <br />
@@ -27,7 +27,7 @@ const SupplierWord = () => {
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="2">
-                        <Accordion.Header><span className='fw-bold text-success'>WALTON <Badge bg="secondary">Mor info</Badge></span></Accordion.Header>
+                        <Accordion.Header><span className='fw-bold text-success'>WALTON <Badge bg="secondary">Info</Badge></span></Accordion.Header>
                         <Accordion.Body>
                             <span className='fs-3'>Who We Are</span>
                             <br />
@@ -35,7 +35,7 @@ const SupplierWord = () => {
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="3">
-                        <Accordion.Header><span className='fw-bold text-success'>HAIER <Badge bg="secondary">Mor info</Badge></span></Accordion.Header>
+                        <Accordion.Header><span className='fw-bold text-success'>HAIER <Badge bg="secondary">Info</Badge></span></Accordion.Header>
                         <Accordion.Body>
                             <span className='fs-3'>Haier of the world, Our Haier, Your own Haier!</span>
                             <br />

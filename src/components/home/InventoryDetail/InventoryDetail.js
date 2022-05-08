@@ -75,7 +75,7 @@ const InventoryDetail = () => {
 
     return (
         <div className='container'>
-            <h2 className='head-line text-center mt-3'>Details of the inventory items: {inventoryDetail?.titleName}</h2>
+            <h2 style={{'margin-top' : '100px'}} className='head-line text-center'>Details of the inventory items: {inventoryDetail?.titleName}</h2>
             <div className='row mt-5'>
                 <div className="col-md-6 col-12 ps-5">
                     <div>

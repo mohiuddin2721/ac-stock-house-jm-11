@@ -25,7 +25,7 @@ const Inventories = () => {
 
     return (
         <div>
-            <h3 className='head-line text-center mt-4'>Manage All Inventories items</h3>
+            <h3 style={{'margin-top' : '100px'}} className='head-line text-center mt-4'>Manage All Inventories items</h3>
             <div className='container row mx-auto'>
                 {
                     items.map(item => <Inventory

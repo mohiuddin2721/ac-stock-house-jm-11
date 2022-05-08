@@ -4,8 +4,8 @@ import './Blog.css';
 
 const Blog = () => {
     return (
-        <div className='container mt-5'>
-            <div>
+        <div className='container'>
+            <div style={{'margin-top' : '100px'}}>
                 <CardGroup className='container mt-5'>
                     <Card className='m-4' border="primary">
                         <Card.Footer className='border question'>
@@ -47,7 +47,7 @@ const Blog = () => {
                 </CardGroup>
             </div>
             <div>
-                <CardGroup className='container mt-5'>
+                <CardGroup className='container mt-3'>
                     <Card className='m-4' border="primary">
                         <Card.Footer className='border question'>
                             <Card.Title className='fs-6'>Differences between sql and no-sql databases?</Card.Title>

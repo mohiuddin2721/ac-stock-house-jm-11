@@ -29,7 +29,7 @@ const AddItem = () => {
 
     return (
         <div className='mx-auto addItem-container m-4'>
-            <h2 className='mb-4 text-center'>You can add New Item</h2>
+            <h2 style={{'margin-top' : '100px'}} className='mb-4 head-line text-center'>You can add New Item</h2>
 
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
                 <input className='mb-2' value={user.email} {...register("email", { required: true, maxLength: 40 })} />
