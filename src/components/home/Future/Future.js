@@ -21,7 +21,7 @@ const Future = ({ name, ...props }) => {
 
     return (
         <div className='container mt-5'>
-            <h2 className="head-line">Read about future Air-Condition</h2>
+            <h2 className="head-line pb-3">Read about future Air-Condition</h2>
             <div className='row mx-auto'>
                 <div className="col-md-4 col-12 mb-2">
                     <div>

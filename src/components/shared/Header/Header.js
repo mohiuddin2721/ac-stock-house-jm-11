@@ -40,7 +40,6 @@ const Header = () => {
 
                             }
 
-                            <Nav.Link className='text-light fw-bold' as={Link} to="/client">CLIENT</Nav.Link>
                             <Nav.Link className='text-light fw-bold' as={Link} to="/blog">BLOG</Nav.Link>
                         </Nav>
 
