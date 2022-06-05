@@ -15,6 +15,7 @@ import NotFound from './components/shared/NotFound/NotFound';
 import RequireAuth from '../src/components/home/RequireAuth/RequireAuth';
 import MyItems from './components/home/MyItems/MyItems';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
