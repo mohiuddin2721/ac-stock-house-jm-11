@@ -46,7 +46,7 @@ const Login = () => {
         // console.log(email, password);
 
         await signInWithEmailAndPassword(email, password);
-        const {data} = await axios.post('https://immense-oasis-87057.herokuapp.com/getToken', {email});
+        const {data} = await axios.post('https://ac-stock-house-server.onrender.com/getToken', {email});
         // console.log(data);
         localStorage.setItem('accessToken', data.accessToken);
         navigate(from, { replace: true });

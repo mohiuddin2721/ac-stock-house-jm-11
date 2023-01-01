@@ -11,7 +11,7 @@ const InventoryDetail = () => {
     const [inventoryDetail, setInventoryDetail] = useState({});
 
     useEffect(() => {
-        const url = `https://immense-oasis-87057.herokuapp.com/items/${id}`;
+        const url = `https://ac-stock-house-server.onrender.com/items/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setInventoryDetail(data))
@@ -21,7 +21,7 @@ const InventoryDetail = () => {
         const newQuantity = parseInt(inventoryDetail?.quantity) - 1;
         // console.log(newQuantity);
 
-        const url = `https://immense-oasis-87057.herokuapp.com/items/${id}`;
+        const url = `https://ac-stock-house-server.onrender.com/items/${id}`;
 
         if (inventoryDetail?.quantity > 0) {
             fetch(url, {
@@ -52,7 +52,7 @@ const InventoryDetail = () => {
         const restockQuantity = increaseQuantity + quantity;
         // console.log(restockQuantity);
 
-        const url = `https://immense-oasis-87057.herokuapp.com/items/${id}`;
+        const url = `https://ac-stock-house-server.onrender.com/items/${id}`;
 
         if (increaseQuantity > 0 && quantity >= 0) {
             fetch(url, {

@@ -11,7 +11,7 @@ const AddItem = () => {
 
     const onSubmit = (data, event) => {
         // console.log(data)
-        const url = `https://immense-oasis-87057.herokuapp.com/items`;
+        const url = `https://ac-stock-house-server.onrender.com/items`;
         fetch(url, {
             method: 'POST',
             headers: {

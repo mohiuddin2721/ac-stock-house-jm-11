@@ -10,7 +10,7 @@ const Inventories = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure???');
         if (proceed) {
-            const url = `https://immense-oasis-87057.herokuapp.com/items/${id}`;
+            const url = `https://ac-stock-house-server.onrender.com/items/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
